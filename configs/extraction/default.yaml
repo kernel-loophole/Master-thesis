@@ -1,0 +1,24 @@
+# Activation Extraction Configuration
+target_layers:
+  - "visual.blocks.11"
+  - "visual.merger"
+  - "model.layers.8"
+  - "model.layers.16"
+  - "model.layers.24"
+  - "model.layers.31"
+
+representation_sources:
+  - "vision_encoder"
+  - "projector"
+  - "multimodal_tokens"
+  - "residual_stream"
+
+token_position_strategy: "last_multimodal_token" # "last_multimodal_token", "all_tokens", "mean_pooling"
+batch_size: 8
+storage_dir: "./outputs/activations"
+max_samples: 5000
+offload_to_cpu: true
+save_format: "safetensors"
+precision: "bfloat16"
+device: "cuda"
+seed: 42

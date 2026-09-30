@@ -1,0 +1,15 @@
+# Steering Intervention Configuration
+target_layer: "model.layers.16"
+feature_indices: [42, 128, 512]       # Target SAE feature IDs to manipulate
+intervention_strength: 5.0             # Alpha multiplier or addition
+intervention_mode: "add"              # "add", "clamp", "suppress", "scale"
+clamp_value: 10.0                      # Value used when intervention_mode is "clamp"
+scale_factor: 2.0                      # Factor used when intervention_mode is "scale"
+
+# Target concept
+target_concept: "inside"
+control_feature_indices: [10, 99]      # Matched control features
+
+output_dir: "./outputs/interventions"
+device: "cuda"
+seed: 42

@@ -1,0 +1,27 @@
+# Sparse Autoencoder (SAE) Configuration
+input_dim: 3584             # Hidden dimension of VLM residual stream (e.g. Qwen2-VL-7B)
+latent_dim: 28672           # Latent dimension (8x expansion factor)
+expansion_factor: 8
+sparsity_coefficient: 0.001  # L1 penalty weight (lambda)
+activation_function: "relu" # "relu" or "topk"
+top_k: 32                   # Top-K sparsity (used if activation_function is "topk")
+normalization: "l2"         # Decoder normalization strategy
+
+# Training Hyperparameters
+batch_size: 1024
+learning_rate: 0.0003
+weight_decay: 0.0
+epochs: 25
+warmup_steps: 500
+grad_clip: 1.0
+
+# Precision & Execution
+device: "cuda"
+dtype: "float32"
+seed: 42
+checkpoint_freq: 5
+
+# Monitoring
+track_dead_features: true
+dead_feature_threshold: 1e-6
+dead_feature_window: 1000

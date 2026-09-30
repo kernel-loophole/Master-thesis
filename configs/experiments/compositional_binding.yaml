@@ -1,0 +1,24 @@
+# Compositional Binding Experiment Configuration
+# Compares 5 intervention conditions on swapped attribute scenes (e.g. red ball in blue cup vs blue ball in red cup)
+experiment_name: "compositional_binding_causal_steering"
+output_dir: "./outputs/experiments/compositional_binding"
+seed: 42
+
+scene_pairs:
+  pair_a: "red ball inside blue cup"
+  pair_b: "blue ball inside red cup"
+
+conditions:
+  - "no_intervention"
+  - "linear_probe_intervention"
+  - "sae_feature_intervention"
+  - "random_feature_intervention"
+  - "matched_control_feature_intervention"
+
+intervention_strengths: [-10.0, -5.0, -2.0, 0.0, 2.0, 5.0, 10.0]
+
+evaluations:
+  - "target_relation_change"
+  - "color_binding_preservation"
+  - "shape_binding_preservation"
+  - "kl_divergence"

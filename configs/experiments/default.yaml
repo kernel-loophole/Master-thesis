@@ -1,0 +1,18 @@
+# Default Master Experiment Configuration
+experiment_name: "spatial_sae_baseline"
+output_dir: "./outputs/experiments"
+seed: 42
+
+configs:
+  model: "configs/model/default.yaml"
+  data: "configs/data/default.yaml"
+  sae: "configs/sae/default.yaml"
+  extraction: "configs/extraction/default.yaml"
+  intervention: "configs/intervention/default.yaml"
+
+metrics:
+  - "spatial_selectivity"
+  - "color_selectivity"
+  - "shape_selectivity"
+  - "counterfactual_invariance"
+  - "collateral_semantic_shift"

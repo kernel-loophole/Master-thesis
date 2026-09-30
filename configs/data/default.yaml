@@ -1,0 +1,33 @@
+# Dataset Configuration
+dataset_name: "synthetic_spatial"
+data_dir: "./data"
+raw_dir: "./data/raw"
+processed_dir: "./data/processed"
+metadata_dir: "./data/metadata"
+
+synthetic:
+  num_samples: 2000
+  image_size: [256, 256]
+  spatial_relations:
+    - "inside"
+    - "outside"
+    - "left_of"
+    - "right_of"
+    - "above"
+    - "below"
+    - "front_of"
+    - "behind"
+    - "overlapping"
+  colors: ["red", "blue", "green", "yellow", "purple", "cyan"]
+  shapes: ["ball", "box", "cube", "sphere", "cylinder", "pyramid"]
+  backgrounds: ["white", "gray", "black", "grid"]
+  generate_counterfactuals: true
+  template_format: "Is the {object_1_color} {object_1_shape} {relation} the {object_2_color} {object_2_shape}?"
+
+batch_size: 16
+num_workers: 4
+split:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+seed: 42
